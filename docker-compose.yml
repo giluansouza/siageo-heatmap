@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  php-apache-ssl:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: php-apache
+    environment:
+      - "APACHE_LOG_DIR:/siageo-v1"
+    ports:
+      - 8005:80
+      - 443:443
+    volumes:
+      - ./.docker/apache2:/etc/apache2/sites-available
+      - ./.docker/apache-ssl:/etc/apache2/sites-available/ssl
+      - ./siageo:/var/www/siageov1

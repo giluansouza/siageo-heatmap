@@ -1,17 +1,48 @@
 version: "3.5"
 
 services:
-  php-apache-ssl:
+  php-apache:
     build:
       context: .
-      dockerfile: .docker/Dockerfile
-    container_name: php-apache
+      dockerfile: .docker/php-apache/Dockerfile
+    container_name: ${CONTAINER_NAME_APACHE}
     environment:
-      - "APACHE_LOG_DIR:/siageo-v1"
+      - "APACHE_LOG_DIR:/logs"
     ports:
-      - 8005:80
-      - 443:443
+      - ${PORT}:80
+      - ${PORT_SSL}:443
     volumes:
-      - ./.docker/apache2:/etc/apache2/sites-available
-      - ./.docker/apache-ssl:/etc/apache2/sites-available/ssl
-      - ./siageo:/var/www/siageov1
+      - ./.docker/php-apache/sites-available:/etc/apache2/sites-available
+      - ./.docker/php-apache/apache-ssl:/etc/apache2/sites-available/ssl
+      - ./webapp:/var/www/html
+
+  composer:
+        image: "composer"
+        container_name: ${CONTAINER_NAME_COMPOSER}
+        volumes:
+            - "./webapp:/app"
+        command: install
+
+  db:
+    image: mysql:${MYSQL_VERSION}
+    container_name: ${CONTAINER_NAME_MYSQL}
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+      - ./db/dbConfig:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - ${PORT_MYSQL}:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:${MYADMIN_VERSION}
+    container_name: ${CONTAINER_NAME_MYADMIN}
+    restart: always
+    environment:
+      - PMA_ARBITRARY=1
+    ports:
+      - ${PORT_MYADMIN}:80
+    depends_on:
+      - db

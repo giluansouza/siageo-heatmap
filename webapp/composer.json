@@ -1,0 +1,22 @@
+{
+    "name": "giluansouza/default",
+    "description": "",
+    "minimum-stability": "stable",
+    "authors": [
+      {
+          "name": "Giluan Souza",
+          "email": "giluanjsouza@gmail.com",
+          "homepage": "https://www.giluansouza.com.br",
+          "role": "Developer"
+      }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DevBoot\\": "source/"
+        },
+  },
+    "require": {
+        "php": "^8.2.0",
+        "ext-pdo": "^8.2.0"
+    }
+}

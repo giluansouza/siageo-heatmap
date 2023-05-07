@@ -1,5 +1,6 @@
 webapp/vendor/
+webapp/.env
 db/
 cert.crt
 cert.key
- webapp/composer.lock
+webapp/composer.lock

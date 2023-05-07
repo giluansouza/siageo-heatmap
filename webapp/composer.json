@@ -1,6 +1,6 @@
 {
-    "name": "giluansouza/default",
-    "description": "",
+    "name": "giluansouza/heatmap",
+    "description": "Exemplo de densidade kernel com api google maps e open street maps",
     "minimum-stability": "stable",
     "authors": [
       {
@@ -12,11 +12,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "DevBoot\\": "source/"
-        },
+            "DevBoot\\": "src/"
+        }
   },
     "require": {
         "php": "^8.2.0",
-        "ext-pdo": "^8.2.0"
+        "ext-pdo": "^8.2.0",
+        "league/plates": "^3.5"
     }
 }

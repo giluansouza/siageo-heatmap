@@ -1,4 +1,5 @@
 webapp/vendor/
+webapp/.env
 db/
-cert.crt
-cert.key
+.docker/php-apache/apache-ssl/cert.crt
+.docker/php-apache/apache-ssl/cert.key

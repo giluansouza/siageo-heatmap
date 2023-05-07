@@ -7,6 +7,7 @@ Docker running Apache, PHP, Composer, MySQL and PHPMyAdmin.
 1. [Configuração inicial](#initial-config)
 
     Altere o arquivo .env com os dados do seu container
+    Altere o composer.json para refletir as necessidades do aplicativo
 
 2. [Gerando certificado SSL](#certificate)
 
@@ -22,10 +23,9 @@ Docker running Apache, PHP, Composer, MySQL and PHPMyAdmin.
 
 4. Open your favorite browser
 
-    * [http://localhost:8005](http://localhost:8005/)
-    * [https://localhost:443](https://localhost:443/) ([HTTPS](#configure-apache-with-ssl-certificates) not configured by default)
-    * [http://localhost:8080](http://localhost:8080/) PHPMyAdmin (username: root, password: root)
-    
+    * [http://siageo.gs:8001](http://siageo.gs:8001/)
+    * [https://siageo.gs:3001](https://siageo.gs:3001/)
+
 5. Stop and clear services
 
     ```sh

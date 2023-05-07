@@ -2,3 +2,4 @@ webapp/vendor/
 db/
 cert.crt
 cert.key
+ webapp/composer.lock

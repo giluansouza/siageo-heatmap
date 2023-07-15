@@ -1,6 +1,6 @@
-# php-apache-mysql-phpmyadmin-composer
+# Mapas de Densidade Kernel (KDE) com OSM e Google Maps
 
-Docker running Apache, PHP, Composer, MySQL and PHPMyAdmin.
+Para rodar o projeto em container Docker com PHP
 
 ## Overview
 
